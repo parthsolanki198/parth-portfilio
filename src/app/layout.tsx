@@ -24,9 +24,21 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Parth — Software Developer",
+  title: "Parth Solanki — Java Backend Engineer | Spring, GCP, Kafka",
   description:
-    "Software developer portfolio: full-stack engineering, APIs, web & mobile apps, testing, and shipping reliable systems.",
+    "Hire a production Java engineer: Spring Boot microservices, GCP/GKE, Kafka & Pub/Sub, PostgreSQL — with resume-backed metrics. Vadodara, open to remote.",
+  openGraph: {
+    title: "Parth Solanki — Java Backend Engineer",
+    description:
+      "Backend systems that stay calm under load. Spring Boot, cloud, messaging — metrics you can verify in conversation.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Parth Solanki — Java Backend Engineer",
+    description:
+      "Spring Boot · GCP · Kafka — production Java with measurable impact. Open to backend roles.",
+  },
 };
 
 export default function RootLayout({

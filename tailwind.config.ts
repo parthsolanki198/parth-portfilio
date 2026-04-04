@@ -37,6 +37,8 @@ const config: Config = {
         mesh: "meshShift 18s ease-in-out infinite",
         "marquee-l": "marquee-x 36s linear infinite",
         "marquee-r": "marquee-x-rev 42s linear infinite",
+        "glow-pulse": "glowPulse 5s ease-in-out infinite",
+        "draw-line": "drawLine 1.2s ease-out forwards",
       },
       keyframes: {
         fadeUp: {
@@ -58,6 +60,14 @@ const config: Config = {
         "marquee-x-rev": {
           "0%": { transform: "translateX(-50%)" },
           "100%": { transform: "translateX(0)" },
+        },
+        glowPulse: {
+          "0%, 100%": { opacity: "0.45", filter: "blur(0px)" },
+          "50%": { opacity: "0.85", filter: "blur(0.5px)" },
+        },
+        drawLine: {
+          "0%": { transform: "scaleX(0)", opacity: "0" },
+          "100%": { transform: "scaleX(1)", opacity: "1" },
         },
       },
     },

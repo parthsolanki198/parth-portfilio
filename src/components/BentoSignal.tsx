@@ -9,34 +9,34 @@ type Cell = {
 
 const cells: Cell[] = [
   {
-    span: "sm:col-span-8 sm:row-span-2",
-    title: "How I engineer",
-    body: "I write software for maintainability: clear boundaries, typed boundaries where it pays off, and instrumentation so production tells you what broke — not users guessing.",
-    foot: "— how I think about the craft",
+    span: "sm:col-span-12",
+    title: "Professional summary",
+    body: "Backend engineer with 2.5+ years in Java (8 / 11 / 17), Spring Boot, and microservices. Strong on event-driven design with Kafka and GCP, and on using AI-assisted tooling responsibly to speed delivery. Multi-time Employee of the Month for ownership and impact.",
+    foot: "— from resume",
   },
   {
-    span: "sm:col-span-4",
-    title: "Code & community",
-    body: "OSS patches, internal dev tools, and PRs that shrink onboarding time for the next developer.",
-    tags: ["PRs", "RFCs", "CLI"],
+    span: "sm:col-span-6",
+    title: "Focus areas",
+    body: "REST APIs, Spring Security, Hibernate (JPA), PostgreSQL tuning, Pub/Sub & Kafka, GKE deployments, Terraform & CI/CD.",
+    tags: ["Java 17", "Spring", "Kafka", "GCP"],
   },
   {
-    span: "sm:col-span-4",
-    title: "Stack focus",
-    body: "Strongest in modern TypeScript ecosystems, Node runtimes, relational data, and shipping through CI/CD — happy to go deeper on request.",
-    tags: ["TS", "React", "SQL"],
+    span: "sm:col-span-6",
+    title: "Education",
+    body: "B.E. Computer Engineering — Gujarat Technological University, Rajkot (2019–2023). Relevant: DSA, databases, cloud, software engineering.",
+    mono: "CGPA · 8.04 / 10.0",
+  },
+  {
+    span: "sm:col-span-6",
+    title: "Certifications & wins",
+    body: "Google Cloud Skill Boost (Vertex AI prompt design, Gemini apps). HackerRank: Java Basic/Intermediate, SQL Advanced. Led Java 8 → 17 migration; designed messaging at 100k+ events/day scale.",
+    tags: ["GCP", "Vertex AI", "HackerRank"],
   },
   {
     span: "sm:col-span-6",
     title: "Location",
-    body: "Remote-friendly. Replace with your city or timezone for recruiters.",
-    mono: "TZ · UTC+00:00 (edit me)",
-  },
-  {
-    span: "sm:col-span-6",
-    title: "Currently",
-    body: "Template: building X at Y, or job-seeking and sharpening Z. Recruiters skim this line first.",
-    mono: "→ edit BentoSignal.tsx",
+    body: "Based in Vadodara, Gujarat, India. Open to remote or hybrid backend roles.",
+    mono: "Vadodara · IST",
   },
 ];
 
@@ -45,16 +45,23 @@ export function BentoSignal() {
     <section id="signal" className="scroll-mt-24 px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-6xl">
         <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-teal-700 dark:text-mint/80">
-          Engineering
+          Profile
         </p>
-        <h2 className="mt-3 font-display text-2xl font-semibold text-stone-900 dark:text-white sm:text-3xl">
-          How I build software — in practice, not buzzwords.
+        <h2 className="mt-3 max-w-3xl font-display text-2xl font-semibold text-stone-900 dark:text-white sm:text-3xl">
+          What teams verify before the first interview.
         </h2>
-        <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-12 sm:grid-rows-[auto_auto] sm:gap-4">
+        <p className="mt-3 max-w-2xl text-sm text-stone-600 dark:text-stone-400">
+          A concise snapshot — same story as my resume, optimized for a 60-second skim.
+        </p>
+        <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-12 sm:gap-4">
           {cells.map((c) => (
             <article
               key={c.title}
-              className={`glass-card p-6 sm:p-7 ${c.span}`}
+              className={`glass-card p-6 sm:p-7 ${c.span} ${
+                c.title === "Professional summary"
+                  ? "ring-1 ring-amber-500/25 dark:ring-amber-400/20"
+                  : ""
+              }`}
             >
               <h3 className="font-mono text-xs uppercase tracking-wider text-stone-500 dark:text-stone-500">
                 {c.title}

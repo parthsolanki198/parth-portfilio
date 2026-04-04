@@ -1,31 +1,48 @@
-const projects = [
+const items = [
   {
-    name: "Ops Console",
-    kind: "Full-stack",
-    desc: "Internal React dashboard on Node: job queues, retries, RBAC, and searchable audit logs. Cut mean time to debug incidents.",
-    hue: "from-mint/20 to-transparent",
-    href: "#",
+    title: "Cloud messaging & E-Post",
+    summary:
+      "Customer messages and notifications needed to stay reliable when traffic spiked.",
+    points: [
+      "Spring Boot microservices on Google Cloud",
+      "Pub/Sub so messages are stored and retried safely",
+      "Automated flows for E-Post delivery",
+    ],
+    outcome: "~30% better reliability · ~40% fewer unsent / failed messages",
+    tech: "Spring Boot · GCP · Pub/Sub",
   },
   {
-    name: "Habit Loop",
-    kind: "Mobile · RN",
-    desc: "React Native app with local SQLite, sync layer, and push. Offline-first data model and migration-safe schema.",
-    hue: "from-coral/20 to-transparent",
-    href: "#",
+    title: "APIs & database speed",
+    summary: "Some APIs were slow; we wanted faster responses without rewriting everything.",
+    points: [
+      "Found slow code paths and removed extra work",
+      "Tuned PostgreSQL queries and indexes",
+      "Kept changes easy for the team to maintain",
+    ],
+    outcome: "~60% faster APIs (measured on the hot paths we fixed)",
+    tech: "Java · Spring · PostgreSQL",
   },
   {
-    name: "Batch Renamer",
-    kind: "Desktop",
-    desc: "Tauri + Rust core for filesystem ops; React UI. Regex presets, dry-run, full undo stack — safe by default.",
-    hue: "from-teal-400/15 to-transparent",
-    href: "#",
+    title: "Deploying to production (GKE)",
+    summary: "The team needed safe, repeatable releases to Kubernetes.",
+    points: [
+      "CI/CD with GitHub Actions",
+      "Pipelines that deploy to GKE with checks in between",
+      "Clear path to roll back if something breaks",
+    ],
+    outcome: "Aim for 99.9% uptime with a steady release rhythm",
+    tech: "Kubernetes · GKE · GitHub Actions",
   },
   {
-    name: "Docs Sync",
-    kind: "DevEx · CI",
-    desc: "GitHub Action pipeline parses TypeScript exports → MDX. Fails PRs when public docs drift from implementation.",
-    hue: "from-violet-400/15 to-transparent",
-    href: "#",
+    title: "Backend services (Simform)",
+    summary: "Internship work: many small services that had to be secure and consistent.",
+    points: [
+      "10+ Spring Boot services with REST and Hibernate",
+      "Login/security with OAuth2 and JWT",
+      "ActiveMQ for notifications · Docker for running services",
+    ],
+    outcome: "Stronger security habits · ~40% fewer vulnerability gaps after reviews",
+    tech: "Spring Security · ActiveMQ · Docker",
   },
 ];
 
@@ -33,67 +50,86 @@ export function ProjectsSection() {
   return (
     <section id="work" className="scroll-mt-24 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-rose-600 dark:text-coral/90">
-          Software
+        <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-stone-500 dark:text-stone-500">
+          Impact
         </p>
-        <h2 className="mt-3 font-display text-2xl font-semibold text-stone-900 dark:text-white sm:text-3xl">
-          Projects — architecture, tradeoffs, outcomes.
+        <h2 className="mt-3 max-w-xl font-display text-2xl font-semibold tracking-tight text-stone-900 dark:text-white sm:text-3xl md:text-4xl">
+          What I improved
         </h2>
-        <p className="mt-3 max-w-xl text-sm text-stone-600 dark:text-stone-500">
-          Replace with your repos: link READMEs, ADRs, or demo URLs. Hiring managers look for how you
-          reason, not just screenshots.
+        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-stone-600 dark:text-stone-400">
+          Simple breakdown: the problem in one line, what I did in a few bullets, and the result at
+          the bottom. From AV Devs and Simform.
         </p>
-      </div>
 
-      <div className="relative mt-12">
-        <div
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-stone-100 via-stone-100/70 to-transparent dark:from-[#050505] dark:via-[#050505]/70 sm:w-20"
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-stone-100 via-stone-100/70 to-transparent dark:from-[#050505] dark:via-[#050505]/70 sm:w-20"
-          aria-hidden
-        />
-
-        <ul className="flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 pt-2 sm:gap-6 sm:px-6 md:px-[max(1.5rem,calc((100vw-72rem)/2+1.5rem))]">
-          {projects.map((p) => (
-            <li
-              key={p.name}
-              className="w-[min(100vw-3rem,22rem)] shrink-0 snap-center sm:w-[26rem]"
-            >
-              <a
-                href={p.href}
-                className="glass-card flex h-full flex-col p-6 sm:p-7"
-              >
-                <div
-                  className={`glass glass-sm mb-5 aspect-[5/3] w-full rounded-xl bg-gradient-to-br ${p.hue} ring-1 ring-inset ring-stone-300/60 dark:ring-white/15`}
-                />
-                <span className="font-mono text-[10px] uppercase tracking-widest text-stone-500 dark:text-stone-500">
-                  {p.kind}
-                </span>
-                <h3 className="mt-2 font-display text-xl text-stone-900 dark:text-white">{p.name}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-stone-600 dark:text-stone-500">
-                  {p.desc}
+        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:gap-6">
+          {items.map((item) => (
+            <li key={item.title}>
+              <article className="glass-card flex h-full flex-col rounded-2xl p-6 sm:p-7">
+                <h3 className="font-display text-lg font-semibold text-stone-900 dark:text-white sm:text-xl">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
+                  {item.summary}
                 </p>
-                <span className="mt-5 font-mono text-xs text-teal-700 dark:text-mint/80">README / demo →</span>
-              </a>
+
+                <p className="mt-5 text-xs font-medium uppercase tracking-wide text-stone-500 dark:text-stone-500">
+                  What I did
+                </p>
+                <ul className="mt-2 space-y-2 text-sm leading-snug text-stone-700 dark:text-stone-300">
+                  {item.points.map((line) => (
+                    <li key={line} className="flex gap-2.5">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-600 dark:bg-mint"
+                        aria-hidden
+                      />
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="mt-4 font-mono text-[10px] text-stone-500 dark:text-stone-500">
+                  {item.tech}
+                </p>
+
+                <div className="mt-5 rounded-xl border border-teal-500/25 bg-teal-500/[0.06] px-4 py-3 dark:border-mint/25 dark:bg-mint/[0.06]">
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-teal-800 dark:text-mint/90">
+                    Result
+                  </p>
+                  <p className="mt-1 text-sm font-medium leading-relaxed text-stone-800 dark:text-stone-200">
+                    {item.outcome}
+                  </p>
+                </div>
+              </article>
             </li>
           ))}
         </ul>
-      </div>
 
-      <p className="mx-auto mt-4 max-w-6xl px-4 text-center font-mono text-xs text-stone-600 sm:px-6 sm:text-left">
-        <a
-          href="https://github.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-stone-500 underline decoration-stone-300 underline-offset-4 transition hover:text-teal-700 hover:decoration-teal-600/50 dark:text-stone-400 dark:decoration-white/10 dark:hover:text-mint dark:hover:decoration-mint/40"
-        >
-          github.com/yourusername
-        </a>
-        <span className="mx-2 text-stone-400 dark:text-stone-700">·</span>
-        commits, issues, green CI — the real CV
-      </p>
+        <p className="mt-10 text-center text-sm text-stone-600 dark:text-stone-400 sm:text-left">
+          Questions?{" "}
+          <a
+            href="#contact"
+            className="font-medium text-teal-700 underline decoration-teal-500/40 underline-offset-2 transition hover:decoration-teal-600 dark:text-mint dark:decoration-mint/40"
+          >
+            Contact me
+          </a>
+          {" · "}
+          <a
+            href="https://www.linkedin.com/in/parthsolanki198"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-stone-700 underline decoration-stone-300 underline-offset-2 transition hover:text-stone-900 dark:text-stone-300 dark:decoration-white/20 dark:hover:text-white"
+          >
+            LinkedIn
+          </a>
+          {" · "}
+          <a
+            href="#experience"
+            className="font-medium text-stone-700 underline decoration-stone-300 underline-offset-2 transition hover:text-stone-900 dark:text-stone-300 dark:decoration-white/20 dark:hover:text-white"
+          >
+            Jobs & dates
+          </a>
+        </p>
+      </div>
     </section>
   );
 }

@@ -6,8 +6,9 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
   { href: "#signal", label: "Profile" },
-  { href: "#toolkit", label: "Toolkit" },
-  { href: "#work", label: "Projects" },
+  { href: "#experience", label: "Experience" },
+  { href: "#toolkit", label: "Stack" },
+  { href: "#work", label: "Impact" },
   { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
 ];
@@ -20,27 +21,34 @@ export function Header() {
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:h-[4rem] sm:px-6">
         <Link
           href="#top"
-          className="group flex items-center gap-2 font-mono text-sm text-stone-800 dark:text-stone-200"
+          className="group flex items-center gap-3 font-mono text-sm text-stone-800 dark:text-stone-200"
         >
-          <span className="text-teal-600 transition group-hover:text-teal-500 dark:text-mint dark:group-hover:text-mint-glow" aria-hidden>
-            ◆
+          <span
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-amber-500/35 bg-gradient-to-br from-amber-500/15 to-teal-500/10 font-display text-xs font-semibold tracking-tight text-stone-900 dark:border-amber-400/25 dark:from-amber-400/10 dark:to-mint/10 dark:text-stone-100"
+            aria-hidden
+          >
+            PS
           </span>
-          <span>parth</span>
-          <span className="text-stone-400 dark:text-stone-600">/</span>
-          <span className="text-stone-500 dark:text-stone-500">io</span>
+          <span className="leading-tight">
+            <span className="block font-medium">Parth Solanki</span>
+            <span className="text-[10px] uppercase tracking-[0.14em] text-stone-500 dark:text-stone-500">
+              Java backend
+            </span>
+          </span>
         </Link>
 
-        <div className="hidden items-center gap-8 lg:flex">
-          <span className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-stone-600 dark:text-stone-500">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-500/35 opacity-60 dark:bg-mint/40" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-600 dark:bg-mint" />
+        <div className="hidden items-center gap-6 lg:flex">
+          <span className="flex max-w-[200px] items-center gap-2 font-mono text-[10px] uppercase leading-tight tracking-wider text-stone-600 dark:text-stone-500 xl:max-w-none">
+            <span className="relative flex h-2 w-2 shrink-0">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500/35 opacity-60 dark:bg-amber-400/30" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-600 dark:bg-amber-400" />
             </span>
-            open to software engineering roles
+            <span className="hidden xl:inline">Open to hire — backend / Java</span>
+            <span className="xl:hidden">Open to hire</span>
           </span>
-          <nav className="flex items-center gap-7">
+          <nav className="flex items-center gap-5 xl:gap-6">
             {links.map((l) => (
-              <Link key={l.href} href={l.href} className="nav-link">
+              <Link key={l.href} href={l.href} className="nav-link whitespace-nowrap">
                 {l.label}
               </Link>
             ))}
