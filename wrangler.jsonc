@@ -1,7 +1,7 @@
 {
   // Cloudflare Workers Builds — copy/paste from cloudflare-build-steps.txt
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "parth-portfolio",
+  "name": "parth-portfilio",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-04-05",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
@@ -12,7 +12,7 @@
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
-      "service": "parth-portfolio"
+      "service": "parth-portfilio"
     }
   ],
   "observability": {
