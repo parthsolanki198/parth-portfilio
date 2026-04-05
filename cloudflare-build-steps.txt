@@ -1,0 +1,39 @@
+================================================================================
+Cloudflare Workers Builds — copy these into the dashboard
+================================================================================
+Path: Workers & Pages → your Worker → Settings → Builds
+
+1) BUILD COMMAND (required — creates the .open-next/ folder)
+   npm ci && npm run cf:build
+
+2) DEPLOY COMMAND (required — must bypass Wrangler’s OpenNext delegate)
+   npm run cf:workers:deploy
+
+   Why: Plain "npx wrangler deploy" detects OpenNext and runs
+   "opennextjs-cloudflare deploy", which often fails in CI with
+   "Could not find compiled Open Next config" if that delegate runs
+   without a successful cf:build output. The script cf:workers:deploy
+   sets OPEN_NEXT_DEPLOY=true so Wrangler uploads the existing
+   .open-next/worker.js from wrangler.jsonc.
+
+3) ROOT DIRECTORY
+   Leave empty (repo root), unless this app lives in a subfolder.
+
+4) BRANCH
+   Usually: main (or your production branch)
+
+5) PREVIEW / NON-PRODUCTION BUILDS (if you use branch previews)
+   Non-production deploy command:
+   npm run cf:workers:upload
+
+6) DO NOT USE AS THE ONLY BUILD STEP
+   npm run build
+   That runs "next build" only — it does NOT run OpenNext and does NOT
+   create .open-next/.
+
+7) AFTER SAVING
+   Retry deployment. In logs you should see "opennextjs-cloudflare build"
+   (or similar) during the build phase, then wrangler deploy without the
+   "OpenNext project detected, calling opennextjs-cloudflare deploy" line.
+
+================================================================================

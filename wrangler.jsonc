@@ -1,9 +1,5 @@
 {
-  // Cloudflare dashboard → Worker → Settings → Builds:
-  //   Build command:  npm ci && npm run cf:build
-  //   Deploy command: npx wrangler deploy
-  // (Do NOT leave deploy as "opennextjs-cloudflare deploy" unless build ran cf:build first.
-  //  Plain "npm run build" only creates .next/, not .open-next/ — deploy will fail.)
+  // Cloudflare Workers Builds — copy/paste from cloudflare-build-steps.txt
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "parth-portfolio",
   "main": ".open-next/worker.js",

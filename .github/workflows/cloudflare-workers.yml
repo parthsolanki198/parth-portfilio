@@ -1,12 +1,7 @@
 # Deploy Next.js to Cloudflare Workers (OpenNext).
 # Add repository secret: CLOUDFLARE_API_TOKEN (Workers: Edit permission).
 #
-# Cloudflare Dashboard (Workers Builds) — if deploy fails with
-# "Could not find compiled Open Next config", your BUILD step never ran OpenNext.
-# Fix:
-#   Build command:  npm ci && npm run cf:build
-#   Deploy command: npm run cf:deploy
-# Do NOT use only "npm run build" for build — that is plain next build and does not create .open-next/
+# Cloudflare Workers Builds: see cloudflare-build-steps.txt in repo root.
 
 name: Deploy Cloudflare Workers
 
@@ -37,6 +32,6 @@ jobs:
           NODE_ENV: production
 
       - name: Deploy to Cloudflare
-        run: npm run cf:deploy
+        run: npm run cf:workers:deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
