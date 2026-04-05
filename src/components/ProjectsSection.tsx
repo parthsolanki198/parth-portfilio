@@ -48,7 +48,10 @@ const items = [
 
 export function ProjectsSection() {
   return (
-    <section id="work" className="scroll-mt-24 py-20 sm:py-28">
+    <section
+      id="work"
+      className="section-reveal section-aura-mint scroll-mt-24 py-20 sm:py-28"
+    >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-stone-500 dark:text-stone-500">
           Impact
@@ -56,9 +59,9 @@ export function ProjectsSection() {
         <h2 className="mt-3 max-w-xl font-display text-2xl font-semibold tracking-tight text-stone-900 dark:text-white sm:text-3xl md:text-4xl">
           What I improved
         </h2>
-        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-stone-600 dark:text-stone-400">
-          Simple breakdown: the problem in one line, what I did in a few bullets, and the result at
-          the bottom. From AV Devs and Simform.
+        <p className="content-lead mt-4 text-sm text-stone-600 dark:text-stone-400">
+          Problem → moves → measurable delta. AV Devs and Simform only; the Stack section holds raw
+          tool names.
         </p>
 
         <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:gap-6">

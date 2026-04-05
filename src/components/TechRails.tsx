@@ -87,7 +87,7 @@ const toneFeatured: Record<(typeof featured)[number]["tone"], string> = {
 
 export function TechRails() {
   return (
-    <section id="toolkit" className="scroll-mt-24 px-4 sm:px-6">
+    <section id="toolkit" className="section-reveal scroll-mt-24 px-4 sm:px-6">
       <div className="relative mx-auto max-w-6xl">
         <div
           className="pointer-events-none absolute -top-8 left-1/2 hidden h-48 w-[min(90%,48rem)] -translate-x-1/2 translate-y-2 scale-[0.96] rounded-3xl border border-stone-200/40 bg-white/20 opacity-60 dark:border-white/[0.06] dark:bg-white/[0.03] sm:block"
@@ -117,9 +117,9 @@ export function TechRails() {
                 <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight text-stone-900 dark:text-white sm:text-3xl">
                   The toolkit behind production backends.
                 </h2>
-                <p className="mt-3 max-w-xl text-sm leading-relaxed text-stone-600 dark:text-stone-500">
-                  Grouped the way I reason about systems: runtime, framework layer, data plane, then
-                  how it ships.
+                <p className="mt-3 max-w-xl text-pretty text-sm leading-[1.75] tracking-[-0.01em] text-stone-600 dark:text-stone-500">
+                  Four layers I actually file tickets under — so names here line up with how I
+                  debug and design, not a keyword dump.
                 </p>
               </div>
               <p className="font-mono text-[10px] uppercase tracking-widest text-stone-400 dark:text-stone-600">

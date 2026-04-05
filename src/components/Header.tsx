@@ -9,7 +9,7 @@ const links = [
   { href: "#experience", label: "Experience" },
   { href: "#toolkit", label: "Stack" },
   { href: "#work", label: "Impact" },
-  { href: "#skills", label: "Skills" },
+  { href: "#craft", label: "Craft" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -88,7 +88,7 @@ export function Header() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg py-3 text-stone-800 dark:text-stone-200"
+                className="rounded-lg py-3 text-stone-800 transition-colors duration-300 ease-out dark:text-stone-200"
               >
                 {l.label}
               </Link>

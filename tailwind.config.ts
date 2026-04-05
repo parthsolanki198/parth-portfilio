@@ -32,7 +32,7 @@ const config: Config = {
         },
       },
       animation: {
-        "fade-up": "fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) forwards",
+        "fade-up": "fadeUp 0.95s cubic-bezier(0.22,1,0.36,1) forwards",
         float: "float 5s ease-in-out infinite",
         mesh: "meshShift 18s ease-in-out infinite",
         "marquee-l": "marquee-x 36s linear infinite",
@@ -42,7 +42,7 @@ const config: Config = {
       },
       keyframes: {
         fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(24px)" },
+          "0%": { opacity: "0", transform: "translateY(18px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         float: {

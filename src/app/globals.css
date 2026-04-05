@@ -10,6 +10,13 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+@media (min-width: 640px) {
+  html {
+    scroll-padding-top: 6rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -30,6 +37,7 @@ body {
   position: relative;
   background-color: #050505;
   color: #f5f5f4;
+  text-rendering: optimizeLegibility;
 }
 
 /* Light theme canvas */
@@ -166,9 +174,10 @@ html.light .glass-sm {
     0 1px 0 rgba(255, 255, 255, 0.1) inset;
   border-radius: 1rem;
   transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
+    border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html.light .glass-card {
@@ -187,9 +196,10 @@ html.light .glass-card {
     0 1px 0 rgba(255, 255, 255, 1) inset;
   border-radius: 1rem;
   transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
+    border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .glass-card:hover {
@@ -204,6 +214,7 @@ html.light .glass-card {
     0 12px 40px rgba(0, 0, 0, 0.5),
     0 0 0 1px rgba(94, 234, 212, 0.1) inset,
     0 1px 0 rgba(255, 255, 255, 0.14) inset;
+  transform: translateY(-2px);
 }
 
 html.light .glass-card:hover {
@@ -218,6 +229,7 @@ html.light .glass-card:hover {
     0 14px 40px rgba(0, 0, 0, 0.08),
     0 0 0 1px rgba(20, 184, 166, 0.15) inset,
     0 1px 0 rgba(255, 255, 255, 1) inset;
+  transform: translateY(-2px);
 }
 
 .glass-nav {
@@ -337,11 +349,11 @@ html.light .spotlight-shell::before {
 }
 
 .nav-link {
-  @apply relative text-[13px] text-stone-400 transition-colors hover:text-white;
+  @apply relative text-[13px] text-stone-400 transition-colors duration-300 ease-out hover:text-white;
 }
 
 html.light .nav-link {
-  @apply text-stone-600 hover:text-stone-900;
+  @apply text-stone-600 transition-colors duration-300 ease-out hover:text-stone-900;
 }
 
 .nav-link::after {
@@ -352,7 +364,7 @@ html.light .nav-link {
   height: 1px;
   width: 0;
   background: linear-gradient(90deg, #5eead4, #fb7185);
-  transition: width 0.25s ease;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav-link:hover::after {
@@ -431,5 +443,232 @@ html.light .hire-brief-glow {
   .animate-glow-pulse,
   .animate-draw-line {
     animation: none !important;
+  }
+}
+
+/* Page rhythm: alternating aura + scroll-driven entry (progressive enhancement) */
+.page-flow section {
+  position: relative;
+  isolation: isolate;
+}
+
+.section-aura-mint::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.55;
+  background: radial-gradient(
+    ellipse 65% 50% at 100% -5%,
+    rgba(94, 234, 212, 0.09),
+    transparent 58%
+  );
+}
+
+html.light .section-aura-mint::before {
+  opacity: 0.7;
+  background: radial-gradient(
+    ellipse 60% 48% at 100% -5%,
+    rgba(20, 184, 166, 0.11),
+    transparent 58%
+  );
+}
+
+.section-aura-amber::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.5;
+  background: radial-gradient(
+    ellipse 58% 46% at 0% 0%,
+    rgba(251, 191, 36, 0.08),
+    transparent 56%
+  );
+}
+
+html.light .section-aura-amber::before {
+  opacity: 0.65;
+  background: radial-gradient(
+    ellipse 55% 44% at 0% 0%,
+    rgba(217, 119, 6, 0.09),
+    transparent 56%
+  );
+}
+
+.section-aura-violet::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.45;
+  background: radial-gradient(
+    ellipse 50% 42% at 50% 100%,
+    rgba(139, 92, 246, 0.07),
+    transparent 55%
+  );
+}
+
+@keyframes section-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .section-reveal {
+      animation: section-enter 1.05s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+  }
+}
+
+.section-thread-dual {
+  height: 2px;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 9999px;
+  background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(94, 234, 212, 0.35) 35%,
+      transparent 70%
+    ),
+    linear-gradient(90deg, transparent 10%, rgba(251, 191, 36, 0.28) 50%, transparent 90%);
+  background-blend-mode: plus-lighter;
+  opacity: 0.85;
+}
+
+html.light .section-thread-dual {
+  background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(13, 148, 136, 0.3) 38%,
+      transparent 72%
+    ),
+    linear-gradient(90deg, transparent 12%, rgba(217, 119, 6, 0.22) 50%, transparent 88%);
+}
+
+.hero-aside-grid {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+html.light .hero-aside-grid {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+}
+
+.hero-aside-shine {
+  background: linear-gradient(
+    125deg,
+    transparent 0%,
+    rgba(94, 234, 212, 0.12) 42%,
+    rgba(251, 191, 36, 0.1) 58%,
+    transparent 100%
+  );
+  background-size: 200% 200%;
+  animation: heroShine 14s ease-in-out infinite;
+}
+
+html.light .hero-aside-shine {
+  background: linear-gradient(
+    125deg,
+    transparent 0%,
+    rgba(20, 184, 166, 0.14) 42%,
+    rgba(217, 119, 6, 0.09) 58%,
+    transparent 100%
+  );
+  background-size: 200% 200%;
+}
+
+@keyframes heroShine {
+  0%,
+  100% {
+    background-position: 0% 40%;
+  }
+  50% {
+    background-position: 100% 60%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-aside-shine {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rotating-focus-phrase {
+    transition-duration: 0.12s !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* Readable section intros — smooth line length & rhythm */
+.content-lead {
+  max-width: 42rem;
+  text-wrap: pretty;
+  line-height: 1.75;
+  letter-spacing: -0.01em;
+}
+
+html.light .content-lead {
+  letter-spacing: -0.012em;
+}
+
+/* Primary actions: soft press + smooth hover */
+.btn-press {
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-press:hover {
+  transform: translateY(-1px);
+}
+
+.btn-press:active {
+  transform: translateY(0) scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-press:hover,
+  .btn-press:active {
+    transform: none;
+  }
+
+  .glass-card:hover {
+    transform: none;
+  }
+
+  @supports (animation-timeline: view()) {
+    .section-reveal {
+      animation: none !important;
+    }
+  }
+
+  .section-reveal {
+    filter: none !important;
   }
 }

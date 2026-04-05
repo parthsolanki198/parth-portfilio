@@ -27,7 +27,10 @@ const roles = [
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="scroll-mt-24 px-4 py-16 sm:px-6 sm:py-24">
+    <section
+      id="experience"
+      className="section-reveal scroll-mt-24 px-4 py-16 sm:px-6 sm:py-24"
+    >
       <div className="mx-auto max-w-6xl">
         <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-amber-700 dark:text-amber-400/90">
           Experience
@@ -35,8 +38,9 @@ export function ExperienceSection() {
         <h2 className="mt-3 font-display text-2xl font-semibold text-stone-900 dark:text-white sm:text-3xl">
           Where I&apos;ve built backend systems.
         </h2>
-        <p className="mt-3 max-w-2xl text-sm text-stone-600 dark:text-stone-500">
-          Summarized from my resume — numbers reflect outcomes I was part of driving.
+        <p className="content-lead mt-3 text-sm text-stone-600 dark:text-stone-500">
+          Timeline and bullets straight from employment history — metrics are team outcomes I
+          helped push across the line.
         </p>
 
         <ol className="relative mt-12 space-y-6 before:absolute before:left-3 before:top-2 before:h-[calc(100%-1rem)] before:w-px before:bg-gradient-to-b before:from-amber-500/50 before:via-teal-500/40 before:to-transparent dark:before:from-amber-400/40 dark:before:via-mint/30 sm:before:left-[0.8125rem]">

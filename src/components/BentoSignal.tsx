@@ -11,49 +11,53 @@ const cells: Cell[] = [
   {
     span: "sm:col-span-12",
     title: "Professional summary",
-    body: "Backend engineer with 2.5+ years in Java (8 / 11 / 17), Spring Boot, and microservices. Strong on event-driven design with Kafka and GCP, and on using AI-assisted tooling responsibly to speed delivery. Multi-time Employee of the Month for ownership and impact.",
-    foot: "— from resume",
+    body: "2.5+ years shipping JVM services in production: feature work, hardening, and the glue between product asks and operable systems. Comfortable owning slices across API design, persistence, messaging, and deploy paths — with recognition for consistent delivery (Employee of the Month ×2 at AV Devs).",
+    foot: "Matches the PDF in Contact — download it there only.",
   },
   {
     span: "sm:col-span-6",
-    title: "Focus areas",
-    body: "REST APIs, Spring Security, Hibernate (JPA), PostgreSQL tuning, Pub/Sub & Kafka, GKE deployments, Terraform & CI/CD.",
-    tags: ["Java 17", "Spring", "Kafka", "GCP"],
+    title: "Where I lean in",
+    body: "End-to-end backend ownership: shaping contracts, guarding data access, making async paths observable, and keeping releases small enough to reason about.",
+    tags: ["Ownership", "APIs", "Events", "Ops-minded"],
   },
   {
     span: "sm:col-span-6",
     title: "Education",
-    body: "B.E. Computer Engineering — Gujarat Technological University, Rajkot (2019–2023). Relevant: DSA, databases, cloud, software engineering.",
+    body: "B.E. Computer Engineering — Gujarat Technological University, Rajkot (2019–2023). Coursework grounded systems thinking: DSA, databases, cloud, and software engineering practice.",
     mono: "CGPA · 8.04 / 10.0",
   },
   {
     span: "sm:col-span-6",
-    title: "Certifications & wins",
-    body: "Google Cloud Skill Boost (Vertex AI prompt design, Gemini apps). HackerRank: Java Basic/Intermediate, SQL Advanced. Led Java 8 → 17 migration; designed messaging at 100k+ events/day scale.",
+    title: "Proof points",
+    body: "Google Cloud Skill Boost (Vertex AI prompt design, Gemini apps). HackerRank: Java Basic/Intermediate, SQL Advanced. Led Java 8 → 17 migration; shaped messaging paths at six-figure daily event volume.",
     tags: ["GCP", "Vertex AI", "HackerRank"],
   },
   {
     span: "sm:col-span-6",
-    title: "Location",
-    body: "Based in Vadodara, Gujarat, India. Open to remote or hybrid backend roles.",
-    mono: "Vadodara · IST",
+    title: "Collaboration",
+    body: "Prefer written decisions, small diffs, and demos that show latency + error budgets — not just green CI. AI tools in the loop for speed, with review standards that keep main trustworthy.",
+    mono: "Async · doc-first",
   },
 ];
 
 export function BentoSignal() {
   return (
-    <section id="signal" className="scroll-mt-24 px-4 py-20 sm:px-6 sm:py-28">
+    <section
+      id="signal"
+      className="section-reveal section-aura-violet scroll-mt-24 px-4 py-20 sm:px-6 sm:py-28"
+    >
       <div className="mx-auto max-w-6xl">
         <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-teal-700 dark:text-mint/80">
           Profile
         </p>
         <h2 className="mt-3 max-w-3xl font-display text-2xl font-semibold text-stone-900 dark:text-white sm:text-3xl">
-          What teams verify before the first interview.
+          The credential lattice — facts, not adjectives.
         </h2>
-        <p className="mt-3 max-w-2xl text-sm text-stone-600 dark:text-stone-400">
-          A concise snapshot — same story as my resume, optimized for a 60-second skim.
+        <p className="content-lead mt-3 text-sm text-stone-600 dark:text-stone-400">
+          Each tile answers a different hiring question so nothing below has to repeat the same
+          paragraph.
         </p>
-        <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-12 sm:gap-4">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-12 sm:gap-5">
           {cells.map((c) => (
             <article
               key={c.title}
@@ -66,7 +70,7 @@ export function BentoSignal() {
               <h3 className="font-mono text-xs uppercase tracking-wider text-stone-500 dark:text-stone-500">
                 {c.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-stone-600 dark:text-stone-400 sm:text-[15px]">
+              <p className="mt-3 text-sm leading-[1.7] text-stone-600 dark:text-stone-400 sm:text-[15px]">
                 {c.body}
               </p>
               {c.foot ? (
